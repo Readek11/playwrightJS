@@ -3,4 +3,11 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+package-lock.json
 .idea
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
