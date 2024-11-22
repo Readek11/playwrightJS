@@ -1,0 +1,13 @@
+{
+  "name": "playwrightJS",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Readek11/playwrightJS.git",
+  "author": "Radek <readek11@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.9.1"
+  },
+  "scripts": {}
+}
