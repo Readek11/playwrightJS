@@ -26,6 +26,5 @@
     "lint-fix": "eslint . --fix",
     "prettier": "prettier . --check",
     "quiet": "playwright test"
-  },
-  "packageManager": "yarn@4.5.2"
+  }
 }
