@@ -13,8 +13,8 @@ export type AccountDetails = {
   firstName: string;
   lastName: string;
   company: string;
-  address: string;
-  address2: string;
+  addressFirstLine: string;
+  addressSecondLine: string;
   country: string;
   state: string;
   city: string;

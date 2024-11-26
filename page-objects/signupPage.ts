@@ -13,8 +13,8 @@ export class SignupPage extends CommonPage {
     firstName: "first_name",
     lastName: "last_name",
     company: "company",
-    address: "address",
-    address2: "address2",
+    addressFirstLine: "address",
+    addressSecondLine: "address2",
     country: "country",
     state: "state",
     city: "city",
@@ -78,12 +78,12 @@ export class SignupPage extends CommonPage {
     return this.page.getByTestId(this.testId.company);
   }
 
-  private getAddressInput(): Locator {
-    return this.page.getByTestId(this.testId.address);
+  private getAddressFirstLineInput(): Locator {
+    return this.page.getByTestId(this.testId.addressFirstLine);
   }
 
-  private getAddress2Input(): Locator {
-    return this.page.getByTestId(this.testId.address2);
+  private getAddressSecondLineInput(): Locator {
+    return this.page.getByTestId(this.testId.addressSecondLine);
   }
 
   private getCountryInput(): Locator {
@@ -146,8 +146,8 @@ export class SignupPage extends CommonPage {
     await this.getFirstNameInput().fill(data.firstName);
     await this.getLastNameInput().fill(data.lastName);
     await this.getCompanyInput().fill(data.company);
-    await this.getAddressInput().fill(data.address);
-    await this.getAddress2Input().fill(data.address2);
+    await this.getAddressFirstLineInput().fill(data.addressFirstLine);
+    await this.getAddressSecondLineInput().fill(data.addressSecondLine);
     await this.getCountryInput().selectOption(data.country);
     await this.getStateInput().fill(data.state);
     await this.getCityInput().fill(data.city);

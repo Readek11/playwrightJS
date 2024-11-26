@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 import { LoginPage } from "../../page-objects/loginPage";
 import { HomePage } from "../../page-objects/homePage";
 import { SignupPage } from "../../page-objects/signupPage";
-import * as fs from "node:fs";
+import { readFileSync } from "node:fs";
 import { TEXT } from "../../constants";
 
 test.describe("Signup", () => {
@@ -11,7 +11,7 @@ test.describe("Signup", () => {
     const homePage = new HomePage(page);
     const signupPage = new SignupPage(page);
 
-    const dataset = JSON.parse(fs.readFileSync("./signup.json", "utf-8"));
+    const dataset = JSON.parse(readFileSync("./signup.json", "utf-8"));
 
     await page.goto("/");
     await expect(page).toHaveTitle(TEXT.TITLE);
