@@ -1,0 +1,21 @@
+{
+  "gender": "male",
+  "name": "Jared Gonzales",
+  "email": "jgonz@dunn.com",
+  "password": "i(XL7XA8Wj",
+  "birthDate": {
+    "day": "3",
+    "month": "8",
+    "year": "2003"
+  },
+  "firstName": "Jared",
+  "lastName": "Gonzales",
+  "company": "Hall Ltd",
+  "addressFirstLine": "949 Meredith Lodge",
+  "addressSecondLine": "Apt. 465",
+  "country": "Canada",
+  "state": "Newfoundland and Labrador",
+  "city": "Corner Brook",
+  "zipcode": "78301",
+  "mobileNumber": "0813496113"
+}
