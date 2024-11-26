@@ -20,4 +20,5 @@ export type AccountDetails = {
   city: string;
   zipcode: string;
   mobileNumber: string;
+  incorrectPassword: string;
 };

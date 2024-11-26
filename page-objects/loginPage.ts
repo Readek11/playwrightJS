@@ -1,37 +1,56 @@
 import { Locator, Page } from "@playwright/test";
-import { AccountDetails } from "../models";
 import { CommonPage } from "./commonPage";
 
 export class LoginPage extends CommonPage {
   private readonly testId = {
-    name: "signup-name",
-    email: "signup-email",
-    submit: "signup-button",
+    signupName: "signup-name",
+    signupEmail: "signup-email",
+    signupButton: "signup-button",
+    loginEmail: "login-email",
+    loginPassword: "login-password",
+    loginButton: "login-button",
   };
 
   constructor(page: Page) {
     super(page);
   }
 
-  private getNameInput(): Locator {
-    return this.page.getByTestId(this.testId.name);
+  private getSignupNameInput(): Locator {
+    return this.page.getByTestId(this.testId.signupName);
   }
 
-  private getEmailInput(): Locator {
-    return this.page.getByTestId(this.testId.email);
+  private getSignupEmailInput(): Locator {
+    return this.page.getByTestId(this.testId.signupEmail);
   }
 
   private getSignupButton(): Locator {
-    return this.page.getByTestId(this.testId.submit);
+    return this.page.getByTestId(this.testId.signupButton);
   }
 
-  public async verifyTextVisibility(text: string) {
-    await this.page.getByText(text).isVisible();
+  private getLoginEmailInput(): Locator {
+    return this.page.getByTestId(this.testId.loginEmail);
   }
 
-  public async fillInNameAndEmail(data: AccountDetails) {
-    await this.getNameInput().fill(data.name);
-    await this.getEmailInput().fill(data.email);
+  private getPasswordInput(): Locator {
+    return this.page.getByTestId(this.testId.loginPassword);
+  }
+
+  private getLoginButton(): Locator {
+    return this.page.getByTestId(this.testId.loginButton);
+  }
+
+  public async fillInSignupNameAndEmail(name: string, email: string) {
+    await this.getSignupNameInput().fill(name);
+    await this.getSignupEmailInput().fill(email);
+  }
+
+  public async clickLoginButton() {
+    await this.getLoginButton().click();
+  }
+
+  public async fillInLoginCredentials(email: string, password: string) {
+    await this.getLoginEmailInput().fill(email);
+    await this.getPasswordInput().fill(password);
   }
 
   public async clickSignupButton() {

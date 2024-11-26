@@ -17,11 +17,15 @@ export class HomePage extends CommonPage {
     }
   }
 
+  public async clickLogoutButton() {
+    await this.page.getByText("Logout").click();
+  }
+
   public async clickDeleteAccountButton() {
     await this.page.getByText("Delete Account").click();
   }
 
-  public async visitSignUpLoginPage() {
+  public async visitLoginPage() {
     await this.page.getByText("Signup / Login").click();
   }
 }
