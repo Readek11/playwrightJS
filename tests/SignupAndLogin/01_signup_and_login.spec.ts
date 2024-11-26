@@ -5,8 +5,10 @@ import { SignupPage } from "../../page-objects/signupPage";
 import { readFileSync } from "node:fs";
 import { TEXT } from "../../constants";
 
-test.describe("Signup", () => {
-  test("Test Case 01 - Register User", async ({ page }) => {
+test.describe("Signup and login", () => {
+  test("Test Case 01 - Register User, logout, try to register using the same email, login with incorrect credentials, login successfully then delete account", async ({
+    page,
+  }) => {
     const loginPage = new LoginPage(page);
     const homePage = new HomePage(page);
     const signupPage = new SignupPage(page);
