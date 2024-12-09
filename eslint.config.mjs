@@ -7,7 +7,12 @@ import tseslint from "typescript-eslint";
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
-    ignores: ["node_modules", "playwright.config.ts", "test-results"],
+    ignores: [
+      "node_modules",
+      "playwright.config.ts",
+      "test-results",
+      "playwright-report",
+    ],
   },
   {
     plugins: {
