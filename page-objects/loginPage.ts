@@ -1,6 +1,15 @@
 import { Locator, Page } from "@playwright/test";
 import { CommonPage } from "./commonPage";
 
+declare module "my-fixtures" {
+  interface MyFixtures {
+    loginPage: LoginPage;
+  }
+}
+
+export const useLoginPage = async ({ page }, use) =>
+  await use(new LoginPage(page));
+
 export class LoginPage extends CommonPage {
   private readonly testId = {
     signupName: "signup-name",

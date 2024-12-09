@@ -1,8 +1,17 @@
 import { CommonPage } from "./commonPage";
 import { expect, Page } from "@playwright/test";
-import { TEXT } from "../constants";
+import { TEXT } from "constants/consts";
 
-export class TestCasesPage extends CommonPage {
+declare module "my-fixtures" {
+  interface MyFixtures {
+    testCasesPage: TestCasesPage;
+  }
+}
+
+export const useTestCasesPage = async ({ page }, use) =>
+  await use(new TestCasesPage(page));
+
+class TestCasesPage extends CommonPage {
   constructor(page: Page) {
     super(page);
   }

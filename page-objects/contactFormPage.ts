@@ -1,8 +1,17 @@
 import { CommonPage } from "./commonPage";
 import { Locator, Page } from "@playwright/test";
-import { ContactDetails } from "../models";
+import { ContactDetails } from "models/models";
 
-export class ContactFormPage extends CommonPage {
+declare module "my-fixtures" {
+  interface MyFixtures {
+    contactFormPage: ContactFormPage;
+  }
+}
+
+export const useContactFormPage = async ({ page }, use) =>
+  await use(new ContactFormPage(page));
+
+class ContactFormPage extends CommonPage {
   private readonly testId = {
     name: "name",
     email: "email",

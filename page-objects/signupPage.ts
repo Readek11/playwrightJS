@@ -1,8 +1,17 @@
 import { Locator, Page } from "@playwright/test";
-import { AccountDetails } from "../models";
+import { AccountDetails } from "models/models";
 import { CommonPage } from "./commonPage";
 
-export class SignupPage extends CommonPage {
+declare module "my-fixtures" {
+  interface MyFixtures {
+    signupPage: SignupPage;
+  }
+}
+
+export const useSignupPage = async ({ page }, use) =>
+  await use(new SignupPage(page));
+
+class SignupPage extends CommonPage {
   private readonly testId = {
     name: "name",
     email: "email",
