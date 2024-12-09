@@ -7,7 +7,7 @@ export abstract class CommonPage {
     this.page = page;
   }
 
-  public async verifyTextVisibility(text: string) {
-    await this.page.getByText(text).isVisible();
+  public async verifyTextVisibility(text: string, exact: boolean = true) {
+    await this.page.getByText(text, { exact }).isVisible();
   }
 }
