@@ -1,7 +1,16 @@
 import { Page } from "@playwright/test";
 import { CommonPage } from "./commonPage";
 
-export class HomePage extends CommonPage {
+declare module "my-fixtures" {
+  interface MyFixtures {
+    homePage: HomePage;
+  }
+}
+
+export const useHomePage = async ({ page }, use) =>
+  await use(new HomePage(page));
+
+class HomePage extends CommonPage {
   constructor(page: Page) {
     super(page);
   }

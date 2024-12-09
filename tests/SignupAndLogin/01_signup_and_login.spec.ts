@@ -1,18 +1,24 @@
-import { expect, test } from "@playwright/test";
-import { LoginPage } from "../../page-objects/loginPage";
-import { HomePage } from "../../page-objects/homePage";
-import { SignupPage } from "../../page-objects/signupPage";
+import { expect, test as base } from "@playwright/test";
+import { useLoginPage } from "page-objects/loginPage";
+import { useHomePage } from "page-objects/homePage";
+import { useSignupPage } from "page-objects/signupPage";
 import { readFileSync } from "node:fs";
-import { TEXT } from "../../constants";
+import { TEXT } from "constants/consts";
+import { MyFixtures } from "my-fixtures";
+
+const test = base.extend<MyFixtures>({
+  loginPage: useLoginPage,
+  homePage: useHomePage,
+  signupPage: useSignupPage,
+});
 
 test.describe("Signup and login", () => {
   test("Test Case 01 - Register User, logout, try to register using the same email, login with incorrect credentials, login successfully then delete account", async ({
     page,
+    loginPage,
+    homePage,
+    signupPage,
   }) => {
-    const loginPage = new LoginPage(page);
-    const homePage = new HomePage(page);
-    const signupPage = new SignupPage(page);
-
     const dataset = JSON.parse(readFileSync("./data/signup.json", "utf-8"));
 
     // Register - Test Case 1

@@ -1,8 +1,17 @@
 import { CommonPage } from "./commonPage";
 import { expect, Page } from "@playwright/test";
-import { ProductDetails } from "../models";
+import { ProductDetails } from "models/models";
 
-export class ProductsPage extends CommonPage {
+declare module "my-fixtures" {
+  interface MyFixtures {
+    productsPage: ProductsPage;
+  }
+}
+
+export const useProductsPage = async ({ page }, use) =>
+  await use(new ProductsPage(page));
+
+class ProductsPage extends CommonPage {
   constructor(page: Page) {
     super(page);
   }

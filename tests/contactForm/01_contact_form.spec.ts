@@ -1,18 +1,24 @@
-import { test } from "@playwright/test";
+import { test as base } from "@playwright/test";
+import { MyFixtures } from "my-fixtures";
 
 import { readFileSync } from "node:fs";
-import { HomePage } from "../../page-objects/homePage";
-import { ContactFormPage } from "../../page-objects/contactFormPage";
-import { TEXT } from "../../constants";
+import { useHomePage } from "page-objects/homePage";
+import { useContactFormPage } from "page-objects/contactFormPage";
+import { TEXT } from "constants/consts";
+
+const test = base.extend<MyFixtures>({
+  contactFormPage: useContactFormPage,
+  homePage: useHomePage,
+});
 
 test.describe("Contact Form", () => {
   test("Visit contact form page, fill in required fields, then submit the form", async ({
     page,
+    contactFormPage,
+    homePage,
   }) => {
     const datasetPath = "./data/contact.json";
 
-    const homePage = new HomePage(page);
-    const contactPage = new ContactFormPage(page);
     const dataset = JSON.parse(readFileSync(datasetPath, "utf-8"));
 
     await page.goto("/");
@@ -20,12 +26,12 @@ test.describe("Contact Form", () => {
     await homePage.verifyTextVisibility(TEXT.TITLE);
 
     await homePage.visitContactPage();
-    await contactPage.verifyTextVisibility(TEXT.GET_IN_TOUCH);
-    await contactPage.fillInContactForm(dataset);
-    await contactPage.uploadFile(datasetPath);
-    await contactPage.clickSubmitButton();
-    await contactPage.verifyTextVisibility(TEXT.SUBMIT_SUCCESSFULLY);
-    await contactPage.clickHomeButton();
+    await contactFormPage.verifyTextVisibility(TEXT.GET_IN_TOUCH);
+    await contactFormPage.fillInContactForm(dataset);
+    await contactFormPage.uploadFile(datasetPath);
+    await contactFormPage.clickSubmitButton();
+    await contactFormPage.verifyTextVisibility(TEXT.SUBMIT_SUCCESSFULLY);
+    await contactFormPage.clickHomeButton();
     await homePage.verifyTextVisibility(TEXT.TITLE);
   });
 });
