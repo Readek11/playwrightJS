@@ -25,7 +25,6 @@ export class ProductsPage extends CommonPage {
   public async verifyAllProductsVisibility() {
     const productsLocators = this.page.locator(".single-products");
     for (let i = 0; i < (await productsLocators.count()); i++) {
-      console.log(i);
       await expect(productsLocators.nth(i)).toBeVisible();
     }
   }
