@@ -13,7 +13,7 @@ test.describe("Signup and login", () => {
     const homePage = new HomePage(page);
     const signupPage = new SignupPage(page);
 
-    const dataset = JSON.parse(readFileSync("./signup.json", "utf-8"));
+    const dataset = JSON.parse(readFileSync("./data/signup.json", "utf-8"));
 
     // Register - Test Case 1
 

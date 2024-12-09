@@ -28,4 +28,18 @@ export class HomePage extends CommonPage {
   public async visitLoginPage() {
     await this.page.getByText("Signup / Login").click();
   }
+
+  public async visitContactPage() {
+    await this.page.getByText("Contact us").click();
+  }
+
+  public async visitTestCasesPage() {
+    await this.page
+      .getByRole("link", { name: "Test Cases", exact: true })
+      .click();
+  }
+
+  public async visitProductsPage() {
+    await this.page.getByText("Products").click();
+  }
 }

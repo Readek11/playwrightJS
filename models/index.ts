@@ -22,3 +22,20 @@ export type AccountDetails = {
   mobileNumber: string;
   incorrectPassword: string;
 };
+
+export type ContactDetails = {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+};
+
+export type ProductDetails = {
+  availability: string;
+  brand: string;
+  category: string;
+  condition: string;
+  id: string;
+  name: string;
+  price: string;
+};
