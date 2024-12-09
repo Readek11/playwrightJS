@@ -4,28 +4,15 @@
     "module": "ES6",
     "baseUrl": "./",
     "paths": {
-      "my-fixtures": [
-        "./fixtures.d.ts"
-      ],
-      "constants": [
-        "./constants/*"
-      ],
-      "models": [
-        "./models/*"
-      ],
-      "page-objects": [
-        "./page-objects/*"
-      ]
+      "my-fixtures": ["./fixtures.d.ts"],
+      "constants": ["./constants/*"],
+      "models": ["./models/*"],
+      "page-objects": ["./page-objects/*"]
     },
     "moduleResolution": "node",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": [
-    "**/*.ts",
-    "**/*.d.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["**/*.ts", "**/*.d.ts"],
+  "exclude": ["node_modules"]
 }
